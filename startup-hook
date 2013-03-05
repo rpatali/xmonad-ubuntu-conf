@@ -13,9 +13,9 @@
 #
 
 ## Empathy chat client (-h: start hidden, -n: don't connect on launch)
-if [ -z "$(pgrep pidgin)" ] ; then
-    pidgin -h -n &
-fi
+#if [ -z "$(pgrep empathy)" ] ; then
+    #empathy -h -n &
+#fi
 
 ## Remmina remote desktop connection client (-i: start hidden)
 #if [ -z "$(pgrep remmina)" ] ; then
