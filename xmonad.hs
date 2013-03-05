@@ -201,6 +201,7 @@ myKeyBindings =
     , ((myModMask, xK_z), sendMessage MirrorExpand)
     , ((myModMask, xK_p), spawn "synapse")
     , ((myModMask, xK_u), focusUrgent)
+    , ((myModMask .|. controlMask, xK_l), spawn "xscreensaver-command -lock")
     {-, ((0, 0x1008FF12), spawn "amixer -q set Master toggle")-}
     {-, ((0, 0x1008FF11), spawn "amixer -q set Master 10%-")-}
     {-, ((0, 0x1008FF13), spawn "amixer -q set Master 10%+")-}

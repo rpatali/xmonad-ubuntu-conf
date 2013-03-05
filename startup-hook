@@ -22,7 +22,7 @@
     #remmina -i &
 #fi
 
-xscreensaver &
+xscreensaver --no-splash &
 spotify &
 pidgin &
 thunderbird &
