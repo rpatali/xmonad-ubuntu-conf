@@ -1,5 +1,3 @@
-Forked from David Brewer (davidbrewer/xmonad-ubuntu-conf)
-
 xmonad-ubuntu-conf
 ==================
 

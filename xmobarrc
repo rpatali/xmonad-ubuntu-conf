@@ -13,7 +13,7 @@
 Config { 
   -- Set font and default foreground/background colors. Note that
   -- the height of xmobar is controlled by the font you use.
-  font = "xft:Ubuntu Mono-14",
+  font = "xft:Ubuntu Mono-13",
   bgColor = "black",
   fgColor = "grey",
 
@@ -45,20 +45,20 @@ Config {
     -- Battery information. This is likely to require some customization
     -- based upon your specific hardware. Or, for a desktop you may want
     -- to just remove this section entirely.
-    Run Battery [
-      "-t", "<acstatus>: <left>%", 
-      "--", 
-      "-c", "charge_full",
-      "-O", "AC",
-      "-o", "Bat",
-      "-h", "green",
-      "-l", "red"
-    ] 10,
+    -- Run Battery [
+    --   "-t", "<acstatus>: <left>%", 
+    --   "--", 
+    --   "-c", "charge_full",
+    --   "-O", "AC",
+    --   "-o", "Bat",
+    --   "-h", "green",
+    --   "-l", "red"
+    -- ] 10,
     
     -- To get volume information, we run a custom bash script.
     -- This is because the built-in volume support in xmobar is disabled
     -- in Debian and derivatives like Ubuntu. 
-    Run Com "~/.xmonad/get-volume" [] "myvolume" 10,
+    -- Run Com "~/.xmonad/get-volume" [] "myvolume" 10,
     
     -- This line tells xmobar to read input from stdin. That's how we
     -- get the information that xmonad is sending it for display.
@@ -74,5 +74,6 @@ Config {
 
    -- Overall template for the layout of the xmobar contents. Note that
    -- space is significant and can be used to add padding.
-   template = "%StdinReader% }{ %battery% | %cpu% | %memory% | Vol: %myvolume%    <fc=#e6744c>%date%</fc>     "
+   -- template = "%StdinReader% }{ %battery% | %cpu% | %memory% | Vol: %myvolume%    <fc=#e6744c>%date%</fc>     "
+   template = "%StdinReader% }{ %cpu% | %memory% |  <fc=#e6744c>%date%</fc>  "
 }

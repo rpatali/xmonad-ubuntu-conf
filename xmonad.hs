@@ -84,6 +84,7 @@ myUrgentWSRight = "}"
   as well.
 -}
 
+{-
 myWorkspaces =
   [
     "7:Chat",  "8:Dbg", "9:Pix",
@@ -91,8 +92,15 @@ myWorkspaces =
     "1:Term",  "2:Hub", "3:Mail",
     "0:VM",    "Extr1", "Extr2"
   ]
+-}
 
-startupWorkspace = "5:Dev"  -- which workspace do you want to be on after launch?
+myWorkspaces =
+  [
+    "3:Mail",  "4:Misc",
+    "1:Term",  "2:Web"
+  ]
+
+startupWorkspace = "1:Term"  -- which workspace do you want to be on after launch?
 
 {-
   Layout configuration. In this section we identify which xmonad
@@ -163,13 +171,17 @@ chatLayout = avoidStruts(withIM (1%7) (Title myIMRosterTitle) Grid)
 -- master area, and then use this ThreeColMid layout to make the panels
 -- tile to the left and right of the image. If you use GIMP 2.8, you
 -- can use single-window mode and avoid this issue.
-gimpLayout = smartBorders(avoidStruts(ThreeColMid 1 (3/100) (3/4)))
+-- gimpLayout = smartBorders(avoidStruts(ThreeColMid 1 (3/100) (3/4)))
 
 -- Here we combine our default layouts with our specific, workspace-locked
 -- layouts.
+-- myLayouts =
+--   onWorkspace "3:Chat" chatLayout
+--   $ onWorkspace "9:Pix" gimpLayout
+--   $ defaultLayouts
 myLayouts =
-  onWorkspace "7:Chat" chatLayout
-  $ onWorkspace "9:Pix" gimpLayout
+  onWorkspace "3:Mail" chatLayout
+--  $ onWorkspace "4:Misc" gimpLayout
   $ defaultLayouts
 
 
@@ -258,13 +270,12 @@ myManagementHooks = [
   resource =? "synapse" --> doIgnore
   , resource =? "stalonetray" --> doIgnore
   , className =? "rdesktop" --> doFloat
-  , (className =? "Komodo IDE") --> doF (W.shift "5:Dev")
+  , (className =? "Komodo IDE") --> doF (W.shift "1:Term")
   , (className =? "Komodo IDE" <&&> resource =? "Komodo_find2") --> doFloat
   , (className =? "Komodo IDE" <&&> resource =? "Komodo_gotofile") --> doFloat
   , (className =? "Komodo IDE" <&&> resource =? "Toplevel") --> doFloat
-  , (className =? "Empathy") --> doF (W.shift "7:Chat")
-  , (className =? "Pidgin") --> doF (W.shift "7:Chat")
-  , (className =? "Gimp-2.8") --> doF (W.shift "9:Pix")
+  , (className =? "Empathy") --> doF (W.shift "3:Mail")
+  , (className =? "Pidgin") --> doF (W.shift "3:Mail")
   ]
 
 
@@ -283,20 +294,26 @@ myManagementHooks = [
 -- use the numpad or the top-row number keys. And, we also
 -- use them to figure out where to go when the user
 -- uses the arrow keys.
-numPadKeys =
-  [
-    xK_KP_Home, xK_KP_Up, xK_KP_Page_Up
-    , xK_KP_Left, xK_KP_Begin,xK_KP_Right
-    , xK_KP_End, xK_KP_Down, xK_KP_Page_Down
-    , xK_KP_Insert, xK_KP_Delete, xK_KP_Enter
-  ]
+-- numPadKeys =
+--   [
+--     xK_KP_Home, xK_KP_Up, xK_KP_Page_Up
+--     , xK_KP_Left, xK_KP_Begin,xK_KP_Right
+--     , xK_KP_End, xK_KP_Down, xK_KP_Page_Down
+--     , xK_KP_Insert, xK_KP_Delete, xK_KP_Enter
+--   ]
+-- 
+-- numKeys =
+--   [
+--     xK_7, xK_8, xK_9
+--     , xK_4, xK_5, xK_6
+--     , xK_1, xK_2, xK_3
+--     , xK_0, xK_minus, xK_equal
+--   ]
 
 numKeys =
   [
-    xK_7, xK_8, xK_9
-    , xK_4, xK_5, xK_6
-    , xK_1, xK_2, xK_3
-    , xK_0, xK_minus, xK_equal
+    xK_3, xK_4, 
+    xK_1, xK_2 
   ]
 
 -- Here, some magic occurs that I once grokked but has since
@@ -305,11 +322,11 @@ numKeys =
 -- how to send windows to different workspaces,
 -- and what keys to use to change which monitor is focused.
 myKeys = myKeyBindings ++
-  [
-    ((m .|. myModMask, k), windows $ f i)
-       | (i, k) <- zip myWorkspaces numPadKeys
-       , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]
-  ] ++
+  {-[-}
+    {-((m .|. myModMask, k), windows $ f i)-}
+       {-| (i, k) <- zip myWorkspaces numPadKeys-}
+       {-, (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]-}
+  {-] ++-}
   [
     ((m .|. myModMask, k), windows $ f i)
        | (i, k) <- zip myWorkspaces numKeys

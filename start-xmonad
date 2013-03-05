@@ -68,13 +68,13 @@ nitrogen --restore &
 # 
 # Line by line, the options used by default below mean:
 # - icons should be aligned with the "East" or right side of the tray
-# - the width of the tray should be 5 icons wide by one icon tall, and it 
+# - the width of the tray should be 3 icons wide by one icon tall, and it 
 #   should be located 0 pixels from the right of the screen (-0) and 0 pixels
 #   from the top of the screen (+0).
 # - By setting our maximum geometry to the same thing, the tray will not grow.
 # - The background color of the tray should be black.
 # - This program should not show up in any taskbar.
-# - Icons should be set to size "24".
+# - Icons should be set to size "22".
 # - Kludges argument of "force_icons_size" forces all icons to really, truly 
 #   be the size we set.
 # - window-strut "none" means windows are allowed to cover the tray. In
@@ -82,11 +82,11 @@ nitrogen --restore &
 #
 stalonetray \
   --icon-gravity E \
-  --geometry 5x1-0+0 \
-  --max-geometry 5x1-0+0 \
+  --geometry 3x1-0+0 \
+  --max-geometry 3x1-0+0 \
   --background '#000000' \
   --skip-taskbar \
-  --icon-size 24 \
+  --icon-size 22 \
   --kludges force_icons_size \
   --window-strut none \
 &
