@@ -117,14 +117,16 @@ defaultLayouts = smartBorders(avoidStruts(
   -- "super-l".
   ResizableTall 1 (3/100) (1/2) []
 
+
+  -- Full layout makes every window full screen. When you toggle the
+  -- active window, it will bring the active window to the front.
+  -- i want full next to default view so that toggle between them is easy
+  ||| noBorders Full
+
   -- Mirrored variation of ResizableTall. In this layout, the large
   -- master window is at the top, and remaining windows tile at the
   -- bottom of the screen. Can be resized as described above.
   ||| Mirror (ResizableTall 1 (3/100) (1/2) [])
-
-  -- Full layout makes every window full screen. When you toggle the
-  -- active window, it will bring the active window to the front.
-  ||| noBorders Full
 
   -- Grid layout tries to equally distribute windows in the available
   -- space, increasing the number of columns and rows as necessary.
