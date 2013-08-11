@@ -28,7 +28,7 @@ Installation
 
 This process is based on the assumption that you have not yet installed xmonad. If you HAVE already installed it, whether this will work is dependent on how you installed it:
 * If you installed xmonad using the standard Ubuntu repositories, you should back up any existing configuration before proceeding, but otherwise this should still work.
-* If you installed xmonad from source using Haskell tools such as Cabal, my installation process will most likely NOT work for you. The Ubuntu packages may conflict with your from-source installation. You should proceed with extreme caution in this case.  
+* If you installed xmonad from source using Haskell tools such as Cabal, my installation process will most likely NOT work for you. The Ubuntu packages may conflict with your from-source installation. You should proceed with extreme caution in this case.
 
 Finally, this whole process is intended for someone who likes to mess with their system configuration and is comfortable at the command line. I'm guessing you probably wouldn't have found this if that wasn't the case.
 
@@ -39,7 +39,7 @@ As your first step, you should check out this github repository or download an a
 ### Installation: the short version ###
 
 I've provided a script which performs all the remaining operations lined out the installation instructions. PLEASE skim the rest of the installation section to see what the script does before running it. If you are happy with all the steps described, you can run the script as a shortcut. If there's anything you want to tweak during installation, you may be better off running the steps manually.
-   
+
      ~/.xmonad/install-xmonad
 
 If you prefer to perform these steps manually to understand what they are doing, read on.
@@ -64,7 +64,7 @@ To launch our xmonad session, we want to be able to pick it from the normal list
     sudo mv /usr/share/xsessions/xmonad.desktop /usr/share/xsessions/xmonad.desktop.original
     sudo cp ~/.xmonad/xmonad.desktop /usr/share/xsessions
 
-Ubuntu's packages do not include any icon for xmonad when showing it in the login screen. This means its icon defaults to a plain white circle. But, no worries... I've got you covered. Just copy the custom xmonadbadge into the appropriate location for a nice consistent login experience. 
+Ubuntu's packages do not include any icon for xmonad when showing it in the login screen. This means its icon defaults to a plain white circle. But, no worries... I've got you covered. Just copy the custom xmonadbadge into the appropriate location for a nice consistent login experience.
 
     sudo cp ~/.xmonad/images/custom_xmonad_badge.png /usr/share/unity-greeter
 
@@ -97,7 +97,7 @@ When you start xmonad for the first time, you're not looking at much. You will s
 
 There are no menus for selecting programs to run. Everything is launched in one of two ways:
 * `mod-shift-enter`: launches a terminal window (Terminator). You can run other programs from the terminal.
-* `mod-alt-space`: launches a Synapse prompt. You can run any program by starting to type its name, and then hitting enter once Synapse has found the program you want. 
+* `mod-alt-space`: launches a Synapse prompt. You can run any program by starting to type its name, and then hitting enter once Synapse has found the program you want.
 
 ### The status bar
 
@@ -111,7 +111,7 @@ The status bar can be divided into 6 major zones.  Running from left to right we
 5. The **date**.
 6. The **icon tray**, which is home to any status icons for programs you are running. By defaults you should see a network manager icon, a chat icon, and an icon for launching remote desktop connections.
 
-If at any point you would like to reclaim some extra vertical space on your screen, you can toggle the visiblity of the status bar by hitting `mod-b`. 
+If at any point you would like to reclaim some extra vertical space on your screen, you can toggle the visiblity of the status bar by hitting `mod-b`.
 
 ### Changing layouts
 
@@ -125,10 +125,10 @@ There are six main layouts I have provided in my configuration:
 
 1. **ResizableTall** has a large master pane on the left, and remaining windows tile on the right. By default each area takes up half the screen, but you can resize using keys defined in "Manipulating windows", below.
 2. **Mirror ResizableTall** is similar to the first layout, but the larger master pane is at the top, and the remaining windows tile at the bottom of the screen. By default each area takes up half the screen, but this layout can also be resized.
-3. **Full** layout makes every window full screen with no borders. When you cycle through the windows, as each window becomes active it will be brought to the front. 
+3. **Full** layout makes every window full screen with no borders. When you cycle through the windows, as each window becomes active it will be brought to the front.
 4. **Grid** layout tries to equally distribute windows in the available space, increasing the number of columns and rows as necessary. The master pane is at top left, but does not get priority over other windows in any other way. Not a resizeable layout.
 5. **ThreeCol** layout puts the large master pane in the center of the screen taking up most of the available screen space. Remaining windows tile to both the left and right of the master pane. This layout is resizeable.
-6. **Circle** layout places the master pane in the center of the screen, with space on all sides. Remaining windows appear positioned in a circle around it, partially overlapping it. The focused window is brought to the front so you can see all of its contents. Not a resizable layout. 
+6. **Circle** layout places the master pane in the center of the screen, with space on all sides. Remaining windows appear positioned in a circle around it, partially overlapping it. The focused window is brought to the front so you can see all of its contents. Not a resizable layout.
 
 In addition to the six main layouts, there is also a special layout called **IM Grid**, which is only activated on the Chat workspace. See the Workspaces section for more information.
 
@@ -136,21 +136,21 @@ Now would be a good time to try out the layouts to get a sense of what they offe
 
 ### Manipulating windows
 
-Once you've got multiple windows on the page and you actually start trying to use them, you'll probably find yourself wanting to manipulate the windows in various ways. 
+Once you've got multiple windows on the page and you actually start trying to use them, you'll probably find yourself wanting to manipulate the windows in various ways.
 
 #### Focusing windows
 
-The currently focused window is outlined with a 1-pixel red border. The other, unfocused windows have a grey border. 
+The currently focused window is outlined with a 1-pixel red border. The other, unfocused windows have a grey border.
 
 You can change your focus as follows:
 * `mod-j` or `mod-shift-tab`  moves your focus to the previous window
 * `mod-k` or `mod-tab` moves your focus to the next window
 * `mod-m` moves your focus to the master pane (see next section)
-* or, you can focus a window by moving your mouse cursor over it 
+* or, you can focus a window by moving your mouse cursor over it
 
 #### Master pane
 
-Many xmonad layouts (but not all) make a distinction between a "master pane" and "everything else". By default, the first program launched on a workspace goes into the master pane. In most layouts, this means it is given priority over the other windows in some way; it may be larger, centrally located, or otherwise made more prominent. 
+Many xmonad layouts (but not all) make a distinction between a "master pane" and "everything else". By default, the first program launched on a workspace goes into the master pane. In most layouts, this means it is given priority over the other windows in some way; it may be larger, centrally located, or otherwise made more prominent.
 
 Although by default there is just one window in the master pane, in some layouts it is possible to move more than one window into the master pane. They will evenly share the available space.
 
@@ -162,7 +162,7 @@ You can manipulate the contents of the master pane as follows:
 #### Resizing windows
 
 There are a couple of different ways you can resize windows in xmonad. These options are only available in the layouts that support them; in some layouts, you do not have control over the size of the windows.
-* `mod-l` and `mod-h` will grow or shrink the size of the master pane. 
+* `mod-l` and `mod-h` will grow or shrink the size of the master pane.
 * `mod-a` and `mod-z` will grow or shrink the size of the currently focused window.
 
 The wonderful thing about resizing windows in xmonad is that all the other windows are moved to make room, so that the contents of all windows are always visible.
@@ -173,7 +173,7 @@ You can use `mod-shift-c` to close the focused window if you are done with it.
 
 ### Workspace
 
-Now that you're creating, focusing, and resizing windows like crazy, you may find yourself running out of space on your screen. No worries, xmonad has got you covered with the concept of **workspaces**. Workspaces are similar to the idea of virtual desktops. However, unlike virtual desktops in most other window managers, workspaces are assigned names. 
+Now that you're creating, focusing, and resizing windows like crazy, you may find yourself running out of space on your screen. No worries, xmonad has got you covered with the concept of **workspaces**. Workspaces are similar to the idea of virtual desktops. However, unlike virtual desktops in most other window managers, workspaces are assigned names.
 
 There are many ways to organize workspaces in xmonad, but I have chosen to associate them with keys on the number pad. Here's how you can think of the layout of workspaces which are provided by default in this configuration:
 
@@ -206,16 +206,16 @@ You are likely to want to rename these to suit your own needs. Nevertheless, her
 #### Selecting a workspace
 
 You can use the following commands to change which workspace you are looking at:
-* `mod-NUMBER`: move to a workspace using its number 
+* `mod-NUMBER`: move to a workspace using its number
 * `mod-KEYPADNUMBER`: move to a workspace using its number (on the keypad)
-* `mod-ARROW`: move to a workspace directionally, using the arrow keys. The workspaces are organized in a grid which matches the layout of the number pad. 
+* `mod-ARROW`: move to a workspace directionally, using the arrow keys. The workspaces are organized in a grid which matches the layout of the number pad.
 
 #### Moving a window to a workspace
 
 You can move the currently focused window to any workspace by simply adding "shift" to the commands listed above. So:
-* `mod-shift-NUMBER`: move a window to a workspace using its number 
+* `mod-shift-NUMBER`: move a window to a workspace using its number
 * `mod-shift-KEYPADNUMBER`: move a window to a workspace using its number (on the keypad)
-* `mod-shift-ARROW`: move to a window to workspace directionally, using the arrow keys. The workspaces are organized in a grid which matches the layout of the number pad. 
+* `mod-shift-ARROW`: move to a window to workspace directionally, using the arrow keys. The workspaces are organized in a grid which matches the layout of the number pad.
 
 Note that when you move a window to a workspace using numbers or the keypad, the window is sent to that workspace but your focus stays on the same workspace you were on. However, when you move a window to a workspace using the arrows, your focus goes along with the window.
 
@@ -235,21 +235,21 @@ What makes xmonad's monitor support different from traditional window managers i
 
 Getting multiple monitors working in xmonad is tricky, and more than I can thoroughly document here. I have had the best luck using the command line tool xrandr. In order to get your configuration working to your liking, you will probably have to tweak the Screen Configuration section of the `start-xmonad` file. The example xrandr commands I have provided should be a helpful starting point.
 
-Depending on the relative positions of your screens you may also need to tweak `xmonad.hs` to modify which screen each of the screen seletion key refers to. Otherwise, they may be in the wrong order, which can be confusing. I prefer that the screen selection keys are in the same order on my keyboard as the monitors they refer to are physically located. 
+Depending on the relative positions of your screens you may also need to tweak `xmonad.hs` to modify which screen each of the screen seletion key refers to. Otherwise, they may be in the wrong order, which can be confusing. I prefer that the screen selection keys are in the same order on my keyboard as the monitors they refer to are physically located.
 
 #### Using multiple screens
 
-In my default configuration, I have two screens and I use "w" to refer to the left and "e" to refer to the right screen. 
+In my default configuration, I have two screens and I use "w" to refer to the left and "e" to refer to the right screen.
 
 * `mod-w` moves the focus to the left screen
 * `mod-e` moves the focus to the right screen
 
-Once you have a screen focused, you can use the regular workspace selection keys to put whatever you want on the focused screen. 
+Once you have a screen focused, you can use the regular workspace selection keys to put whatever you want on the focused screen.
 
 ### Quitting or restarting xmonad
 
 The following commands involve quitting or restarting xmonad:
-* `mod-shift-q`: quits xmonad, returning to the login screen. 
+* `mod-shift-q`: quits xmonad, returning to the login screen.
 * `mod-q`: restarts and recompiles xmonad. Does not require restarting any other programs you may be running, and happens very quickly. Very useful while experimenting with changes to your `xmonad.hs` file!
 
 Configuration
@@ -274,13 +274,13 @@ You should take a look at the `start-xmonad` file if you want to make any of the
 * you want to tweak the settings on the icon tray part of the status bar, perhaps to change its height or width, or to make room for more icons
 * you want to disable or change any of the following:
   * compositing (support for transparency)
-  * background images 
+  * background images
 
 If you make changes to `start-xmonad`, the only way to see the changes is to log out of xmonad and log back in using `mod-shift-q`. This can make testing changes to this file a little tedious.
 
 ### Editing startup-hook ###
 
-The `startup-hook` script runs immediately after xmonad is initialized, via the startupHook mechanism of xmonad itself. 
+The `startup-hook` script runs immediately after xmonad is initialized, via the startupHook mechanism of xmonad itself.
 
 You should take a look at editing the `startup-hook` script if you want to modify any of the software that is started by default, such as:
 * applicaiton launcher (synapse)
@@ -302,7 +302,7 @@ You can see whether the changes you have made to `xmobarrc` have been effective 
 
 ### Editing xmonad.hs ###
 
-The `xmonad.hs` file is the main xmonad configuration file. Actually, it's not really a configuration file, but a Haskell program. This can make its syntax a little daunting to grasp. 
+The `xmonad.hs` file is the main xmonad configuration file. Actually, it's not really a configuration file, but a Haskell program. This can make its syntax a little daunting to grasp.
 
 I have done my best to format the file in a comprehensible manner and provide extensive comments. Still, editing this file can be a little risky. It's best to make small changes and compile frequently (using `mod-q`) to test if your changes work. If you get an error message, simply undo your change and compile again.
 
@@ -323,7 +323,7 @@ In particular I have noticed problems with machines that have more than one soun
 
     # I changed this first line of the script:
     str=`amixer sget Master,0`
-    
+
     # so that instead it read like this:
     str=`amixer -c 1 sget Master,0`
 

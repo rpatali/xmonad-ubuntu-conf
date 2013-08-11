@@ -1,20 +1,20 @@
--- xmobar configuration file 
+-- xmobar configuration file
 --
 -- Mess with this file to change the appearance of the contents of the
 -- status bar which are not directly controlled by xmonad. You can see your
 -- changes immediately by recompiling xmonad using "super-q".
--- 
--- There's a lot you can do here. Refer to "man xmobar". 
--- 
+--
+-- There's a lot you can do here. Refer to "man xmobar".
+--
 -- Author: David Brewer
 -- Repository: https://github.com/davidbrewer/xmonad-ubuntu-conf
 
 
-Config { 
+Config {
   font = "xft:Ubuntu Mono-11",
   bgColor = "black",
   fgColor = "grey",
-  position = TopW L 98, 
+  position = TopW L 98,
 
   commands = [
 
@@ -39,7 +39,9 @@ Config {
 
     Run Com "~/.xmonad/get-volume" [] "myvolume" 10,
 
-    Run Date "%a %b %_d %l:%M" "date" 10,
+    Run Com "~/.xmonad/get-battery" [] "mybattery" 10,
+
+    Run Date "%a %b %_d %l:%M" "mydate" 10,
 
     Run StdinReader
    ],
@@ -48,5 +50,5 @@ Config {
 
    alignSep = "}{",
 
-   template = "%StdinReader% }{ %cpu% | %memory% | Vol: %myvolume% <fc=#e6744c>%date%</fc>     "
+   template = "%StdinReader% }{ %cpu% | %memory% | Vol: %myvolume% | Bat: %mybattery% | <fc=#e6744c>%mydate%</fc>     "
 }
