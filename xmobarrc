@@ -11,7 +11,7 @@
 
 
 Config { 
-  font = "xft:Ubuntu Mono-12",
+  font = "xft:Ubuntu Mono-11",
   bgColor = "black",
   fgColor = "grey",
   position = TopW L 98, 
@@ -29,13 +29,15 @@ Config {
    -- ] 36000
 
     Run Cpu [
-      "-H","50",
+      "-H","60",
       "--high","red"
     ] 10,
 
     Run Memory [
       "-t","Mem: <usedratio>%"
     ] 10,
+
+    Run Com "~/.xmonad/get-volume" [] "myvolume" 10,
 
     Run Date "%a %b %_d %l:%M" "date" 10,
 
@@ -46,5 +48,5 @@ Config {
 
    alignSep = "}{",
 
-   template = "%StdinReader% }{ %cpu% | %memory% | <fc=#e6744c>%date%</fc>     "
+   template = "%StdinReader% }{ %cpu% | %memory% | Vol: %myvolume% <fc=#e6744c>%date%</fc>     "
 }
