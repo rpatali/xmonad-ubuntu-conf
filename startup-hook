@@ -22,7 +22,9 @@
     #remmina -i &
 #fi
 
-xscreensaver --no-splash &
+# This will set caps as ctrl at startup
+/usr/bin/setxkbmap -option "ctrl:nocaps"
+
 spotify &
 pidgin &
 thunderbird &

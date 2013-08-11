@@ -11,7 +11,7 @@
 
 
 Config { 
-  font = "xft:Ubuntu Mono-11",
+  font = "xft:Ubuntu Mono-12",
   bgColor = "black",
   fgColor = "grey",
   position = TopW L 98, 
