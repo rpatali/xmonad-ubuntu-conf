@@ -154,7 +154,7 @@ defaultLayouts = smartBorders(avoidStruts(
 -- identified using the myIMRosterTitle variable, and by default is
 -- configured for Empathy, so if you're using something else you
 -- will want to modify that variable.
-chatLayout = avoidStruts(withIM (1%7) (ClassName "Pidgin") Grid)
+chatLayout = avoidStruts(withIM (1%7) (ClassName "Empathy") Grid)
 
 -- The GIMP layout uses the ThreeColMid layout. The traditional GIMP
 -- floating panels approach is a bit of a challenge to handle with xmonad;
@@ -263,7 +263,7 @@ myManagementHooks = [
   {-, (className =? "Komodo IDE" <&&> resource =? "Komodo_gotofile") --> doFloat-}
   {-, (className =? "Komodo IDE" <&&> resource =? "Toplevel") --> doFloat-}
   {-, (className =? "Empathy") --> doF (W.shift "3:Mail")-}
-  , (className =? "Pidgin") --> doF (W.shift "3:Mail")
+  , (className =? "Empathy") --> doF (W.shift "3:Mail")
   , (className =? "Thunderbird") --> doF (W.shift "3:Mail")
   , (className =? "Spotify") --> doF (W.shift "4:Misc")
   {-, (className =? "Gimp-2.8") --> doF (W.shift "9:Pix")-}
